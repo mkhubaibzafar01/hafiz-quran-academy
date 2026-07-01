@@ -1,6 +1,7 @@
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
+import HowItWorksIllustration from "./illustrations/HowItWorksIllustration";
 
 const STEPS = [
   {
@@ -64,18 +65,7 @@ export default function HowItWorks() {
 
         <Reveal direction="up" delay={0.1} className="mt-16">
           <div className="relative overflow-hidden rounded-3xl border border-primary-100 shadow-lg shadow-primary-900/10">
-            {/*
-              Replace with a real, wide photo showing a live online
-              class in session (e.g. a laptop/tablet screen with a
-              video call, notebook and Quran nearby).
-              Recommended: 1600x700px+, JPG/WebP.
-              Drop the file at /public/how-it-works-live-class.jpg
-            */}
-            <img
-              src="/how-it-works-live-class.jpg"
-              alt="A student attending a live one-to-one online Quran class"
-              className="aspect-[16/7] w-full object-cover"
-            />
+            <HowItWorksIllustration className="aspect-[16/7] w-full" />
           </div>
         </Reveal>
 

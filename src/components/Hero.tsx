@@ -1,6 +1,7 @@
 import GeometricPattern from "./GeometricPattern";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
+import HeroIllustration from "./illustrations/HeroIllustration";
 
 export default function Hero() {
   return (
@@ -66,19 +67,7 @@ export default function Hero() {
               className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-300/30 via-primary-400/10 to-transparent blur-2xl"
             />
             <div className="relative overflow-hidden rounded-3xl border border-cream-50/15 bg-primary-800/40 p-2 shadow-2xl shadow-primary-950/50 backdrop-blur-sm">
-              {/*
-                Replace with a real, high-quality photo:
-                a warm, natural image of children learning the Quran
-                online on a phone, tablet, or laptop (e.g. a child
-                reading Quran on a tablet during a video call).
-                Recommended: 1200x1400px or larger, JPG/WebP.
-                Drop the file at /public/hero-children-learning.jpg
-              */}
-              <img
-                src="/hero-children-learning.jpg"
-                alt="Children learning the Quran online on tablet and laptop"
-                className="aspect-[4/5] w-full rounded-[1.35rem] object-cover"
-              />
+              <HeroIllustration className="aspect-[4/5] w-full rounded-[1.35rem]" />
             </div>
 
             <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-cream-50/15 bg-primary-950/80 px-5 py-4 shadow-xl backdrop-blur-md sm:block">

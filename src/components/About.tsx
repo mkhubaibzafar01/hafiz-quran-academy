@@ -1,6 +1,7 @@
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
 import AnimatedCounter from "./motion/AnimatedCounter";
+import AboutIllustration from "./illustrations/AboutIllustration";
 
 const STATS = [
   { value: 1050, suffix: "+", label: "Students taught worldwide" },
@@ -29,18 +30,7 @@ export default function About() {
               className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-primary-200/60 via-gold-100/40 to-transparent blur-xl"
             />
             <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-primary-700 shadow-xl shadow-primary-900/10">
-              {/*
-                Replace with a real photo of a live online Quran lesson
-                in progress (e.g. a student's tablet/laptop screen during
-                a video call, or a teacher's workspace) — no personal
-                photos required. Recommended: 1000x1000px+, JPG/WebP.
-                Drop the file at /public/about-online-quran-class.jpg
-              */}
-              <img
-                src="/about-online-quran-class.jpg"
-                alt="A live one-to-one online Quran lesson in progress"
-                className="aspect-square w-full object-cover"
-              />
+              <AboutIllustration className="aspect-square w-full" />
             </div>
           </div>
         </Reveal>

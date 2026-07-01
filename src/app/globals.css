@@ -105,9 +105,76 @@ html {
   animation: float-orb-slow 14s ease-in-out infinite;
 }
 
+/* Gentle, elegant motion for hand-drawn SVG illustrations */
+@keyframes illus-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes illus-float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes illus-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes illus-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.illus-float {
+  animation: illus-float 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.illus-float-slow {
+  animation: illus-float-slow 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.illus-pulse {
+  animation: illus-pulse 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.illus-spin-slow {
+  animation: illus-spin-slow 40s linear infinite;
+  transform-origin: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-orb,
   .hero-orb-slow {
+    animation: none;
+  }
+
+  .illus-float,
+  .illus-float-slow,
+  .illus-pulse,
+  .illus-spin-slow {
     animation: none;
   }
 }

@@ -2,6 +2,7 @@ import GeometricPattern from "./GeometricPattern";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import CTAIllustration from "./illustrations/CTAIllustration";
 
 export default function ContactCTA() {
   return (
@@ -13,7 +14,8 @@ export default function ContactCTA() {
       />
 
       <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
-        <h2 className="font-serif text-3xl font-bold sm:text-4xl">
+        <CTAIllustration className="h-32 w-auto sm:h-40" />
+        <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl">
           Ready to Begin Your Quran Journey?
         </h2>
         <p className="mt-4 max-w-xl text-cream-100/90">

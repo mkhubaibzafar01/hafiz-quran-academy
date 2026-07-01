@@ -1,5 +1,6 @@
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
+import WhyUsIllustration from "./illustrations/WhyUsIllustration";
 
 const POINTS = [
   {
@@ -47,18 +48,7 @@ export default function WhyChooseUs() {
                 className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold-400/20 via-primary-400/10 to-transparent blur-xl"
               />
               <div className="relative overflow-hidden rounded-2xl border border-cream-50/10 shadow-2xl shadow-primary-950/40">
-                {/*
-                  Replace with a real photo of a family or student
-                  learning comfortably at home (e.g. on a sofa or at a
-                  desk, device in hand) to convey flexibility and comfort.
-                  Recommended: 900x1100px+, JPG/WebP.
-                  Drop the file at /public/why-us-family-schedule.jpg
-                */}
-                <img
-                  src="/why-us-family-schedule.jpg"
-                  alt="A family arranging a flexible online Quran class schedule at home"
-                  className="aspect-[4/5] w-full object-cover"
-                />
+                <WhyUsIllustration className="aspect-[4/5] w-full" />
               </div>
             </div>
           </Reveal>
