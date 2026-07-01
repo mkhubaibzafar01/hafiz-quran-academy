@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import "./globals.css";
 
 const bodyFont = Inter({
@@ -16,7 +17,7 @@ const headingFont = Lora({
 
 const SITE_NAME = "Quran Academy";
 const SITE_DESCRIPTION =
-  "Online Quran classes for kids and adults, taught one-to-one by M. Khubaib Zafar, a Hafiz-e-Quran. Learn Quran reading, Tajweed, and memorization (Hifz) live online — flexible timings for families in the UK, USA, and Europe.";
+  "Online Quran classes for kids and adults, taught one-to-one by a qualified Hafiz-e-Quran. Learn Quran reading, Tajweed, and memorization (Hifz) live online, with class times you choose — flexible timings for families in the UK, USA, and Europe.";
 
 export const metadata: Metadata = {
   // Placeholder — update once a production domain is available.
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     "online Quran teacher",
     "Quran classes for kids UK",
     "Quran classes for kids USA",
+    "Quran classes for kids Europe",
     "Quran memorization online",
     "Hifz classes online",
     "Tajweed classes online",
@@ -70,6 +72,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

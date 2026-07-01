@@ -1,70 +1,104 @@
-const HIGHLIGHTS = [
-  { label: "Teaching experience", value: "[X years teaching experience]" },
-  { label: "Students taught internationally", value: "[countries taught]" },
-  { label: "Lessons taught", value: "one-to-one, live" },
+import Reveal from "./motion/Reveal";
+import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
+import AnimatedCounter from "./motion/AnimatedCounter";
+
+const STATS = [
+  { value: 1050, suffix: "+", label: "Students taught worldwide" },
+  { value: 40, suffix: "+", label: "Countries served" },
+];
+
+const FEATURES = [
+  {
+    title: "Qualified Hafiz-e-Quran",
+    description: "Every teacher has memorized the entire Holy Quran.",
+  },
+  {
+    title: "One-to-one live lessons",
+    description: "Focused, individual attention — never a crowded class.",
+  },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="bg-cream-50 py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:items-center">
-        <div className="lg:col-span-2">
-          <div className="relative mx-auto flex aspect-square w-full max-w-sm items-center justify-center rounded-2xl bg-primary-700 shadow-xl">
-            <div className="absolute inset-4 rounded-xl border border-gold-300/40" />
-            <svg
-              viewBox="0 0 100 100"
-              className="h-28 w-28 text-cream-50/90"
-              fill="none"
+    <section id="about" className="bg-cream-50 py-24">
+      <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-5 lg:items-center lg:gap-12">
+        <Reveal direction="right" className="lg:col-span-2">
+          <div className="relative mx-auto w-full max-w-sm">
+            <div
               aria-hidden="true"
-            >
-              <circle cx="50" cy="34" r="16" stroke="currentColor" strokeWidth="3" />
-              <path
-                d="M18 88c0-18 14-32 32-32s32 14 32 32"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
+              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-primary-200/60 via-gold-100/40 to-transparent blur-xl"
+            />
+            <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-primary-700 shadow-xl shadow-primary-900/10">
+              {/*
+                Replace with a real photo of a live online Quran lesson
+                in progress (e.g. a student's tablet/laptop screen during
+                a video call, or a teacher's workspace) — no personal
+                photos required. Recommended: 1000x1000px+, JPG/WebP.
+                Drop the file at /public/about-online-quran-class.jpg
+              */}
+              <img
+                src="/about-online-quran-class.jpg"
+                alt="A live one-to-one online Quran lesson in progress"
+                className="aspect-square w-full object-cover"
               />
-            </svg>
-            <span className="sr-only">Photo of the teacher placeholder</span>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="lg:col-span-3">
-          <span className="text-sm font-semibold uppercase tracking-wide text-primary-600">
-            Meet Your Teacher
-          </span>
-          <h2 className="mt-2 font-serif text-3xl font-bold text-primary-800 sm:text-4xl">
-            M. Khubaib Zafar — Hafiz-e-Quran
-          </h2>
-          <p className="mt-5 text-navy-700/90 leading-relaxed">
-            M. Khubaib Zafar is a Hafiz-e-Quran, having memorized the entire
-            Holy Quran, and dedicates his time to teaching the Quran online
-            to students of all ages. He teaches one-to-one, giving each
-            student focused, individual attention rather than a crowded
-            classroom setting.
-          </p>
-          <p className="mt-4 text-navy-700/90 leading-relaxed">
-            With a calm and patient teaching style, he has helped students
-            across the UK, USA, and Europe build confidence in reading the
-            Quran, correct their Tajweed, and work steadily toward memorizing
-            the Quran — all from the comfort of their own home.
-          </p>
+          <Reveal direction="up">
+            <span className="text-sm font-semibold uppercase tracking-wide text-primary-600">
+              About the Academy
+            </span>
+            <h2 className="mt-2 font-serif text-3xl font-bold text-primary-800 sm:text-4xl">
+              Taught by a Qualified Hafiz-e-Quran
+            </h2>
+            <p className="mt-5 leading-relaxed text-navy-700/90">
+              Our academy is dedicated to teaching the Quran online to
+              students of all ages, taught by a qualified Hafiz-e-Quran who
+              has memorized the entire Holy Quran. Every lesson is
+              one-to-one, giving each student focused, individual attention
+              rather than a crowded classroom setting.
+            </p>
+            <p className="mt-4 leading-relaxed text-navy-700/90">
+              With a calm and patient teaching style, we&apos;ve helped
+              students across the UK, USA, Europe, and beyond build
+              confidence in reading the Quran, correct their Tajweed, and
+              work steadily toward memorizing the Quran — all from the
+              comfort of their own home, at a time that suits them.
+            </p>
+          </Reveal>
 
-          <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {HIGHLIGHTS.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-xl border border-primary-100 bg-primary-50/60 px-4 py-3"
+          <StaggerGroup className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {STATS.map((stat) => (
+              <StaggerItem
+                key={stat.label}
+                className="rounded-2xl border border-primary-100 bg-primary-50/60 px-4 py-5 text-center shadow-sm"
               >
-                <dt className="text-xs font-medium uppercase tracking-wide text-primary-600">
-                  {item.label}
-                </dt>
-                <dd className="mt-1 font-serif text-lg font-semibold text-primary-800">
-                  {item.value}
+                <dt className="sr-only">{stat.label}</dt>
+                <dd className="font-serif text-2xl font-bold text-primary-800 sm:text-3xl">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </dd>
-              </div>
+                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-primary-600">
+                  {stat.label}
+                </p>
+              </StaggerItem>
             ))}
-          </dl>
+
+            {FEATURES.map((feature) => (
+              <StaggerItem
+                key={feature.title}
+                className="rounded-2xl border border-primary-100 bg-primary-50/60 px-4 py-5 text-center shadow-sm"
+              >
+                <p className="font-serif text-sm font-semibold leading-snug text-primary-800">
+                  {feature.title}
+                </p>
+                <p className="mt-1 text-xs leading-snug text-navy-700/70">
+                  {feature.description}
+                </p>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@
   --color-primary-700: #164a33;
   --color-primary-800: #113b29;
   --color-primary-900: #0c2c1f;
+  --color-primary-950: #071a13;
 
   --color-gold-50: #fdf9ee;
   --color-gold-100: #f8edcb;
@@ -45,6 +46,7 @@
   --color-primary-700: var(--color-primary-700);
   --color-primary-800: var(--color-primary-800);
   --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
 
   --color-gold-50: var(--color-gold-50);
   --color-gold-100: var(--color-gold-100);
@@ -72,4 +74,46 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* One tasteful animated hero accent: lightweight, CSS-only floating orbs */
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -24px, 0) scale(1.06);
+  }
+}
+
+@keyframes float-orb-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-16px, 20px, 0) scale(1.08);
+  }
+}
+
+.hero-orb {
+  animation: float-orb 10s ease-in-out infinite;
+}
+
+.hero-orb-slow {
+  animation: float-orb-slow 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .hero-orb-slow {
+    animation: none;
+  }
+}
+
+/* Subtle glass-panel effect used across premium cards */
+.glass-panel {
+  background: color-mix(in srgb, var(--color-cream-50) 6%, transparent);
+  backdrop-filter: blur(12px);
 }

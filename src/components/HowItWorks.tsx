@@ -1,4 +1,6 @@
 import WhatsAppButton from "./WhatsAppButton";
+import Reveal from "./motion/Reveal";
+import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
 
 const STEPS = [
   {
@@ -15,9 +17,9 @@ const STEPS = [
   },
   {
     step: "3",
-    title: "Get a schedule that fits your timezone",
+    title: "Choose your own class time",
     description:
-      "Together we'll set a regular weekly schedule that works around your local time and routine.",
+      "Pick a regular weekly schedule that fits your timezone and daily routine — mornings, evenings, or weekends.",
   },
   {
     step: "4",
@@ -29,34 +31,55 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-cream-50 py-20">
+    <section id="how-it-works" className="bg-cream-50 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wide text-primary-600">
             How It Works
           </span>
           <h2 className="mt-2 font-serif text-3xl font-bold text-primary-800 sm:text-4xl">
             Getting Started Is Simple
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent lg:block"
+          />
           {STEPS.map((item) => (
-            <div key={item.step} className="relative text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary-600 font-serif text-xl font-bold text-cream-50">
+            <StaggerItem key={item.step} className="relative text-center">
+              <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary-600 font-serif text-xl font-bold text-cream-50 shadow-lg shadow-primary-600/30">
                 {item.step}
               </div>
-              <h3 className="mt-4 font-serif text-lg font-semibold text-primary-800">
+              <h3 className="mt-5 font-serif text-lg font-semibold text-primary-800">
                 {item.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-navy-700/90">
                 {item.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
-        <div className="mt-14 flex justify-center">
+        <Reveal direction="up" delay={0.1} className="mt-16">
+          <div className="relative overflow-hidden rounded-3xl border border-primary-100 shadow-lg shadow-primary-900/10">
+            {/*
+              Replace with a real, wide photo showing a live online
+              class in session (e.g. a laptop/tablet screen with a
+              video call, notebook and Quran nearby).
+              Recommended: 1600x700px+, JPG/WebP.
+              Drop the file at /public/how-it-works-live-class.jpg
+            */}
+            <img
+              src="/how-it-works-live-class.jpg"
+              alt="A student attending a live one-to-one online Quran class"
+              className="aspect-[16/7] w-full object-cover"
+            />
+          </div>
+        </Reveal>
+
+        <div className="mt-16 flex justify-center">
           <WhatsAppButton
             className="px-8 py-4 text-lg"
             message="Assalamu Alaikum, I'd like to get started with Quran classes."

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WhatsAppButton from "./WhatsAppButton";
 
 const NAV_LINKS = [
@@ -14,14 +14,28 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-primary-100 bg-cream-50/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <a href="#top" className="flex items-center gap-2">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-primary-100 bg-cream-50/85 shadow-sm shadow-primary-900/5 backdrop-blur-lg"
+          : "border-transparent bg-cream-50/60 backdrop-blur-sm"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
+        <a href="#top" className="flex items-center gap-2.5">
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-cream-50"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-cream-50 shadow-sm"
           >
             <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
               <path
@@ -32,17 +46,17 @@ export default function Header() {
               />
             </svg>
           </span>
-          <span className="font-serif text-lg font-semibold text-primary-800">
+          <span className="font-serif text-lg font-semibold tracking-tight text-primary-800">
             Quran Academy
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-navy-700 hover:text-primary-700"
+              className="text-sm font-medium text-navy-700 transition-colors hover:text-primary-700"
             >
               {link.label}
             </a>

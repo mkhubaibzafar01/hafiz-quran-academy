@@ -1,19 +1,25 @@
 import GeometricPattern from "./GeometricPattern";
 import WhatsAppButton from "./WhatsAppButton";
+import Reveal from "./motion/Reveal";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 export default function ContactCTA() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-primary-700 py-20 text-cream-50">
-      <GeometricPattern className="absolute inset-0 h-full w-full text-cream-50/10" />
+    <section id="contact" className="relative overflow-hidden bg-primary-800 py-24 text-cream-50">
+      <GeometricPattern className="absolute inset-0 h-full w-full text-cream-50/[0.06]" />
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-gold-400/15 blur-3xl"
+      />
 
-      <div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
+      <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
         <h2 className="font-serif text-3xl font-bold sm:text-4xl">
           Ready to Begin Your Quran Journey?
         </h2>
         <p className="mt-4 max-w-xl text-cream-100/90">
           Lessons are available worldwide, with a free trial class for every
-          new student. Message us directly on WhatsApp to get started.
+          new student, and class times built around your schedule. Message
+          us directly on WhatsApp to get started.
         </p>
 
         <WhatsAppButton
@@ -28,7 +34,7 @@ export default function ContactCTA() {
           Or reach us directly at{" "}
           <span className="font-semibold text-gold-200">{WHATSAPP_DISPLAY}</span>
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }
