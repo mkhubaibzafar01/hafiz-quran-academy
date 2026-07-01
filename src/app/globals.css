@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf8f1;
+  --foreground: #1c2a2a;
+
+  --color-primary-50: #eef5f0;
+  --color-primary-100: #d3e6da;
+  --color-primary-200: #a7cdb6;
+  --color-primary-300: #79b090;
+  --color-primary-400: #4a8f6c;
+  --color-primary-500: #2f7350;
+  --color-primary-600: #1f5c3f;
+  --color-primary-700: #164a33;
+  --color-primary-800: #113b29;
+  --color-primary-900: #0c2c1f;
+
+  --color-gold-50: #fdf9ee;
+  --color-gold-100: #f8edcb;
+  --color-gold-200: #f0da97;
+  --color-gold-300: #e5c265;
+  --color-gold-400: #d4a83e;
+  --color-gold-500: #bd8f2c;
+  --color-gold-600: #9c7222;
+
+  --color-navy-700: #1e2a44;
+  --color-navy-900: #101828;
+
+  --color-cream-50: #fffdf8;
+  --color-cream-100: #fbf8f1;
+  --color-cream-200: #f4eddc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+
+  --color-gold-50: var(--color-gold-50);
+  --color-gold-100: var(--color-gold-100);
+  --color-gold-200: var(--color-gold-200);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-600: var(--color-gold-600);
+
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-900: var(--color-navy-900);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
