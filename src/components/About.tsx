@@ -1,7 +1,6 @@
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
 import AnimatedCounter from "./motion/AnimatedCounter";
-import AboutIllustration from "./illustrations/AboutIllustration";
 
 const STATS = [
   { value: 1050, suffix: "+", label: "Students taught worldwide" },
@@ -29,8 +28,21 @@ export default function About() {
               aria-hidden="true"
               className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-primary-200/60 via-gold-100/40 to-transparent blur-xl"
             />
-            <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-primary-700 shadow-xl shadow-primary-900/10">
-              <AboutIllustration className="aspect-square w-full" />
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-primary-100 bg-primary-700 shadow-xl shadow-primary-900/10">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                <source src="/videos/about-academy.mp4" type="video/mp4" />
+              </video>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-primary-950/30 via-transparent to-transparent"
+              />
             </div>
           </div>
         </Reveal>
