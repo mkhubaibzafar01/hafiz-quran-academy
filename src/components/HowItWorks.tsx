@@ -1,7 +1,6 @@
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
-import HowItWorksIllustration from "./illustrations/HowItWorksIllustration";
 
 const STEPS = [
   {
@@ -64,8 +63,21 @@ export default function HowItWorks() {
         </StaggerGroup>
 
         <Reveal direction="up" delay={0.1} className="mt-16">
-          <div className="relative overflow-hidden rounded-3xl border border-primary-100 shadow-lg shadow-primary-900/10">
-            <HowItWorksIllustration className="aspect-[16/7] w-full" />
+          <div className="relative aspect-[16/7] w-full overflow-hidden rounded-3xl border border-primary-100 shadow-lg shadow-primary-900/10">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source src="/videos/ambience-quran.mp4" type="video/mp4" />
+            </video>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-primary-950/40 via-transparent to-transparent"
+            />
           </div>
         </Reveal>
 
