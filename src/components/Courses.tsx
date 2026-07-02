@@ -1,19 +1,17 @@
+import Image from "next/image";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
 import {
-  NooraniQaidaIllustration,
   QuranReadingIllustration,
   HifzIllustration,
-  TajweedIllustration,
-  AdultsRevertsIllustration,
 } from "./illustrations/CourseIllustrations";
 
 const COURSES = [
   {
     title: "Noorani Qaida",
     audience: "Beginners & kids",
-    Illustration: NooraniQaidaIllustration,
+    image: "/courses/noorani-qaida.jpg",
     description:
       "The essential first step — learning Arabic letters, correct pronunciation, and basic reading rules before moving into the Quran itself.",
   },
@@ -34,14 +32,14 @@ const COURSES = [
   {
     title: "Tajweed Rules",
     audience: "All levels",
-    Illustration: TajweedIllustration,
+    image: "/courses/tajweed.webp",
     description:
       "A focused course on the rules of Tajweed for students who already read Quran but want to refine and perfect their recitation.",
   },
   {
     title: "Quran for Adults & Reverts",
     audience: "Adults & new Muslims",
-    Illustration: AdultsRevertsIllustration,
+    image: "/courses/adults-reverts.webp",
     description:
       "A patient, judgment-free course designed for adults and reverts starting from scratch — at your own pace, with no prior knowledge assumed.",
   },
@@ -72,7 +70,19 @@ export default function Courses() {
               className="group flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-cream-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-900/10"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-primary-100">
-                <course.Illustration className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+                {course.image ? (
+                  <Image
+                    src={course.image}
+                    alt={`${course.title} — ${course.description}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  course.Illustration && (
+                    <course.Illustration className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+                  )
+                )}
                 <span className="absolute left-4 top-4 w-fit rounded-full bg-gold-100/95 px-3 py-1 text-xs font-semibold text-gold-600 shadow-sm backdrop-blur-sm">
                   {course.audience}
                 </span>

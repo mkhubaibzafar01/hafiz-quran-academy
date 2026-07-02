@@ -1,7 +1,6 @@
 import GeometricPattern from "./GeometricPattern";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
-import HeroIllustration from "./illustrations/HeroIllustration";
 
 export default function Hero() {
   return (
@@ -67,10 +66,25 @@ export default function Hero() {
               className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-300/30 via-primary-400/10 to-transparent blur-2xl"
             />
             <div className="relative overflow-hidden rounded-3xl border border-cream-50/15 bg-primary-800/40 p-2 shadow-2xl shadow-primary-950/50 backdrop-blur-sm">
-              <HeroIllustration className="aspect-[4/5] w-full rounded-[1.35rem]" />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.35rem]">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 h-full w-full object-cover"
+                >
+                  <source src="/videos/hero-quran.mp4" type="video/mp4" />
+                </video>
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-950/10 to-primary-950/25"
+                />
+              </div>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-cream-50/15 bg-primary-950/80 px-5 py-4 shadow-xl backdrop-blur-md sm:block">
+            <div className="absolute -bottom-6 -left-6 z-10 hidden rounded-2xl border border-cream-50/15 bg-primary-950/80 px-5 py-4 shadow-xl backdrop-blur-md sm:block">
               <p className="font-serif text-2xl font-bold text-gold-200">
                 1,050+
               </p>

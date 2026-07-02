@@ -7,6 +7,21 @@ import CTAIllustration from "./illustrations/CTAIllustration";
 export default function ContactCTA() {
   return (
     <section id="contact" className="relative overflow-hidden bg-primary-800 py-24 text-cream-50">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/videos/ambience-quran.mp4" type="video/mp4" />
+      </video>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-b from-primary-900/90 via-primary-800/85 to-primary-900/90"
+      />
       <GeometricPattern className="absolute inset-0 h-full w-full text-cream-50/[0.06]" />
       <div
         aria-hidden="true"

@@ -15,30 +15,6 @@ function CardBackdrop({ uid }: { uid: string }) {
   );
 }
 
-export function NooraniQaidaIllustration({ className = "" }: { className?: string }) {
-  const uid = "course-qaida";
-  return (
-    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Illustration of letter practice tiles for the Noorani Qaida course" xmlns="http://www.w3.org/2000/svg">
-      <CardBackdrop uid={uid} />
-      <g className="illus-float" transform="translate(120,55)">
-        {[0, 1].map((row) =>
-          [0, 1].map((col) => (
-            <g key={`${row}-${col}`} transform={`translate(${col * 90},${row * 68})`}>
-              <rect width="72" height="52" rx="10" fill="#fffdf8" stroke="#a7cdb6" strokeWidth="2" />
-              <circle cx="20" cy="26" r="5" fill="#d4a83e" opacity="0.85" />
-              <path d="M32 34 Q46 12 60 22" stroke="#1f5c3f" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.7" />
-            </g>
-          ))
-        )}
-      </g>
-      <g className="illus-float-slow" transform="translate(300,175) rotate(-25)">
-        <rect x="-6" y="-40" width="12" height="60" rx="4" fill="#e5c265" />
-        <path d="M-6 20 L6 20 L0 34 Z" fill="#164a33" />
-      </g>
-    </svg>
-  );
-}
-
 export function QuranReadingIllustration({ className = "" }: { className?: string }) {
   const uid = "course-reading";
   return (
@@ -89,49 +65,6 @@ export function HifzIllustration({ className = "" }: { className?: string }) {
         <g transform="translate(270,170) scale(0.45)" className="illus-pulse" style={{ animationDelay: "1s" }}>
           <path d="M12 0 L15 9 L24 12 L15 15 L12 24 L9 15 L0 12 L9 9 Z" />
         </g>
-      </g>
-    </svg>
-  );
-}
-
-export function TajweedIllustration({ className = "" }: { className?: string }) {
-  const uid = "course-tajweed";
-  const bars = [14, 26, 40, 22, 34, 46, 20, 30];
-  return (
-    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Illustration of sound waves representing the Tajweed rules course" xmlns="http://www.w3.org/2000/svg">
-      <CardBackdrop uid={uid} />
-      <g className="illus-float" transform="translate(150,90)">
-        <path d="M30 0 C21 -5 10 -5 0 0 V46 C10 41 21 41 30 46 C39 41 50 41 60 46 V0 C50 -5 39 -5 30 0 Z" fill="#164a33" />
-      </g>
-      <g stroke="#d4a83e" strokeWidth="6" strokeLinecap="round" className="illus-pulse">
-        {bars.map((h, i) => (
-          <line key={i} x1={230 + i * 16} y1={125 - h / 2} x2={230 + i * 16} y2={125 + h / 2} opacity={0.9 - i * 0.06} />
-        ))}
-      </g>
-    </svg>
-  );
-}
-
-export function AdultsRevertsIllustration({ className = "" }: { className?: string }) {
-  const uid = "course-adults";
-  return (
-    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Illustration of an adult learner with a book, representing the course for adults and reverts" xmlns="http://www.w3.org/2000/svg">
-      <CardBackdrop uid={uid} />
-      {/* rising sun / new beginning */}
-      <g transform="translate(290,70)" opacity="0.8">
-        <circle r="26" fill="#f0da97" className="illus-pulse" />
-        <g stroke="#d4a83e" strokeWidth="3" strokeLinecap="round">
-          {[0, 60, 120, 180, 240, 300].map((deg) => (
-            <line key={deg} x1="0" y1="-34" x2="0" y2="-42" transform={`rotate(${deg})`} />
-          ))}
-        </g>
-      </g>
-      {/* simple abstract seated figure, faceless */}
-      <g className="illus-float" transform="translate(110,110)">
-        <circle cx="30" cy="0" r="18" fill="#164a33" />
-        <path d="M0 90 C0 50 12 34 30 34 C48 34 60 50 60 90 Z" fill="#1f5c3f" />
-        {/* open book on lap */}
-        <path d="M6 78 C16 72 24 72 30 76 C36 72 44 72 54 78 V90 C44 84 36 84 30 88 C24 84 16 84 6 90 Z" fill="#f0da97" />
       </g>
     </svg>
   );
