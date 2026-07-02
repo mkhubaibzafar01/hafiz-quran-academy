@@ -16,14 +16,15 @@ const headingFont = Lora({
 });
 
 const SITE_NAME = "Quran Academy";
+const SITE_URL = "https://hafiz-quran-academy.vercel.app";
+const SITE_TITLE = "Online Quran Classes with a Qualified Hafiz | Quran Academy";
 const SITE_DESCRIPTION =
-  "Online Quran classes for kids and adults, taught one-to-one by a qualified Hafiz-e-Quran. Learn Quran reading, Tajweed, and memorization (Hifz) live online, with class times you choose — flexible timings for families in the UK, USA, and Europe.";
+  "Learn the Holy Quran online with a qualified Hafiz. One-to-one Quran classes for children & adults in the UK, USA & Europe — Noorani Qaida, Tajweed, Hifz & more. Free trial.";
 
 export const metadata: Metadata = {
-  // Placeholder — update once a production domain is available.
-  metadataBase: new URL("https://www.your-domain-here.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Online Quran Classes with a Qualified Hafiz`,
+    default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -39,17 +40,20 @@ export const metadata: Metadata = {
     "Tajweed classes online",
     "Noorani Qaida online",
     "Quran teacher for adults",
+    "Quran academy online",
+    "one-to-one Quran classes",
   ],
   openGraph: {
-    title: `${SITE_NAME} | Online Quran Classes with a Qualified Hafiz`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
+    url: SITE_URL,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary",
-    title: `${SITE_NAME} | Online Quran Classes with a Qualified Hafiz`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   robots: {
