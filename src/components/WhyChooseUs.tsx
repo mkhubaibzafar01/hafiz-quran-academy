@@ -1,6 +1,5 @@
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
-import WhyUsIllustration from "./illustrations/WhyUsIllustration";
 
 const POINTS = [
   {
@@ -47,8 +46,21 @@ export default function WhyChooseUs() {
                 aria-hidden="true"
                 className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold-400/20 via-primary-400/10 to-transparent blur-xl"
               />
-              <div className="relative overflow-hidden rounded-2xl border border-cream-50/10 shadow-2xl shadow-primary-950/40">
-                <WhyUsIllustration className="aspect-[4/5] w-full" />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-cream-50/10 shadow-2xl shadow-primary-950/40">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 h-full w-full object-cover"
+                >
+                  <source src="/videos/quran-pages.mp4" type="video/mp4" />
+                </video>
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent"
+                />
               </div>
             </div>
           </Reveal>

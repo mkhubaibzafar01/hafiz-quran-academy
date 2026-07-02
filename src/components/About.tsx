@@ -9,7 +9,7 @@ const STATS = [
 
 const FEATURES = [
   {
-    title: "Qualified Hafiz-e-Quran",
+    title: "Certified Quran Teachers",
     description: "Every teacher has memorized the entire Holy Quran.",
   },
   {
@@ -53,7 +53,7 @@ export default function About() {
               About the Academy
             </span>
             <h2 className="mt-2 font-serif text-3xl font-bold text-primary-800 sm:text-4xl">
-              Taught by a Qualified Hafiz-e-Quran
+              Expert Quran Teaching You Can Trust
             </h2>
             <p className="mt-5 leading-relaxed text-navy-700/90">
               Our academy is dedicated to teaching the Quran online to
