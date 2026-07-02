@@ -8,6 +8,23 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden bg-primary-900 text-cream-50"
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/videos/about-academy.mp4" type="video/mp4" />
+      </video>
+
+      {/* Strong dark overlay so text stays readable over the video on every screen size */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-b from-primary-950/80 via-primary-950/65 to-primary-950/85"
+      />
+
       {/* Subtle Islamic geometric pattern, lightweight SVG (no WebGL) */}
       <GeometricPattern className="absolute inset-0 h-full w-full text-cream-50/[0.06]" />
 
@@ -21,16 +38,14 @@ export default function Hero() {
         className="hero-orb-slow absolute right-0 top-1/3 h-96 w-96 rounded-full bg-primary-400/20 blur-3xl"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-950/60 via-primary-900/85 to-primary-900" />
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 py-24 sm:px-6 sm:py-32 lg:grid-cols-2 lg:gap-10 lg:py-36">
-        <Reveal direction="up" className="flex flex-col items-start text-left">
+      <div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 py-24 text-center sm:px-6 sm:py-32 lg:py-40">
+        <Reveal direction="up" className="flex flex-col items-center">
           <span className="rounded-full border border-gold-300/40 bg-gold-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-200 backdrop-blur-sm">
             One-to-One Online Quran Classes
           </span>
 
-          <h1 className="mt-6 max-w-xl font-serif text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-[3.25rem]">
-            Learn the Holy Quran Online with a Qualified Hafiz
+          <h1 className="mt-6 max-w-2xl font-serif text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+            Master the Holy Quran with Expert One-to-One Guidance
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-cream-100/85">
@@ -43,7 +58,7 @@ export default function Hero() {
             , in your own timezone.
           </p>
 
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
             <WhatsAppButton
               variant="cream"
               className="px-8 py-4 text-lg"
@@ -51,46 +66,19 @@ export default function Hero() {
             >
               Start Free Trial on WhatsApp
             </WhatsAppButton>
-          </div>
 
-          <p className="mt-8 text-sm text-cream-100/70">
-            Trusted by Muslim families across the UK, USA &amp; Europe
-            &middot; Flexible timing for every timezone
-          </p>
-        </Reveal>
-
-        <Reveal direction="left" delay={0.15} className="relative">
-          <div className="relative mx-auto w-full max-w-md">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-300/30 via-primary-400/10 to-transparent blur-2xl"
-            />
-            <div className="relative overflow-hidden rounded-3xl border border-cream-50/15 bg-primary-800/40 p-2 shadow-2xl shadow-primary-950/50 backdrop-blur-sm">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.35rem]">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="absolute inset-0 h-full w-full object-cover"
-                >
-                  <source src="/videos/hero-quran.mp4" type="video/mp4" />
-                </video>
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-950/10 to-primary-950/25"
-                />
-              </div>
-            </div>
-
-            <div className="absolute -bottom-6 -left-6 z-10 hidden rounded-2xl border border-cream-50/15 bg-primary-950/80 px-5 py-4 shadow-xl backdrop-blur-md sm:block">
+            <div className="rounded-2xl border border-cream-50/15 bg-primary-950/70 px-5 py-4 text-center shadow-xl backdrop-blur-md">
               <p className="font-serif text-2xl font-bold text-gold-200">
                 1,050+
               </p>
               <p className="text-xs text-cream-100/80">Students taught</p>
             </div>
           </div>
+
+          <p className="mt-8 text-sm text-cream-100/70">
+            Trusted by Muslim families across the UK, USA &amp; Europe
+            &middot; Flexible timing for every timezone
+          </p>
         </Reveal>
       </div>
     </section>

@@ -37,7 +37,7 @@ export default function About() {
                 preload="auto"
                 className="absolute inset-0 h-full w-full object-cover"
               >
-                <source src="/videos/about-academy.mp4" type="video/mp4" />
+                <source src="/videos/hero-quran.mp4" type="video/mp4" />
               </video>
               <div
                 aria-hidden="true"
