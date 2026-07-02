@@ -2,10 +2,6 @@ import Image from "next/image";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
-import {
-  QuranReadingIllustration,
-  HifzIllustration,
-} from "./illustrations/CourseIllustrations";
 
 const COURSES = [
   {
@@ -18,14 +14,14 @@ const COURSES = [
   {
     title: "Quran Reading (Nazra) with Tajweed",
     audience: "Kids & adults",
-    Illustration: QuranReadingIllustration,
+    image: "/courses/quran-reading.jpg",
     description:
       "Learn to read the Quran fluently with correct Tajweed (pronunciation rules), building accuracy and confidence page by page.",
   },
   {
     title: "Quran Memorization (Hifz)",
     audience: "Kids & adults",
-    Illustration: HifzIllustration,
+    image: "/courses/hifz.webp",
     description:
       "Structured, one-to-one memorization classes with regular revision plans to help students memorize the Quran at a steady, sustainable pace.",
   },
@@ -70,19 +66,13 @@ export default function Courses() {
               className="group flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-cream-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-900/10"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-primary-100">
-                {course.image ? (
-                  <Image
-                    src={course.image}
-                    alt={`${course.title} — ${course.description}`}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  course.Illustration && (
-                    <course.Illustration className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
-                  )
-                )}
+                <Image
+                  src={course.image}
+                  alt={`${course.title} — ${course.description}`}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <span className="absolute left-4 top-4 w-fit rounded-full bg-gold-100/95 px-3 py-1 text-xs font-semibold text-gold-600 shadow-sm backdrop-blur-sm">
                   {course.audience}
                 </span>
