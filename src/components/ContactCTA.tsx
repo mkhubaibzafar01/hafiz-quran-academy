@@ -1,21 +1,29 @@
-import GeometricPattern from "./GeometricPattern";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
-import CTAIllustration from "./illustrations/CTAIllustration";
 
 export default function ContactCTA() {
   return (
     <section id="contact" className="relative overflow-hidden bg-primary-800 py-24 text-cream-50">
-      <GeometricPattern className="absolute inset-0 h-full w-full text-cream-50/[0.06]" />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/videos/cta-quran.mp4" type="video/mp4" />
+      </video>
+
+      {/* Strong dark overlay so text stays readable over the video on every screen size */}
       <div
         aria-hidden="true"
-        className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-gold-400/15 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-b from-primary-950/70 via-primary-950/65 to-primary-950/80"
       />
 
       <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
-        <CTAIllustration className="h-32 w-auto sm:h-40" />
-        <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl">
+        <h2 className="font-serif text-3xl font-bold sm:text-4xl">
           Ready to Begin Your Quran Journey?
         </h2>
         <p className="mt-4 max-w-xl text-cream-100/90">
