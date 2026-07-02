@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 import WhatsAppButton from "./WhatsAppButton";
 
 const NAV_LINKS = [
@@ -32,23 +33,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
-        <a href="#top" className="flex items-center gap-2.5">
-          <span
-            aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-cream-50 shadow-sm"
-          >
-            <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
-              <path
-                d="M12 3c-3 2-4.5 5-4.5 8.5A6.5 6.5 0 0 0 12 21a6.5 6.5 0 0 0 4.5-9.5C16.5 8 15 5 12 3Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          <span className="font-serif text-lg font-semibold tracking-tight text-primary-800">
-            Quran Academy
-          </span>
+        <a href="#top">
+          <Logo />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
