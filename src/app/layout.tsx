@@ -3,6 +3,7 @@ import { Lora, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { SITE_NAME, SITE_URL, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
 const bodyFont = Inter({
@@ -14,12 +15,6 @@ const headingFont = Lora({
   variable: "--font-heading",
   subsets: ["latin"],
 });
-
-const SITE_NAME = "Quran Academy";
-const SITE_URL = "https://hafiz-quran-academy.vercel.app";
-const SITE_TITLE = "Online Quran Classes with a Qualified Hafiz | Quran Academy";
-const SITE_DESCRIPTION =
-  "Learn the Holy Quran online with a qualified Hafiz. One-to-one Quran classes for children & adults in the UK, USA & Europe — Noorani Qaida, Tajweed, Hifz & more. Free trial.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
