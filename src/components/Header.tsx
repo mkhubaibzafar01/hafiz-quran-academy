@@ -6,13 +6,13 @@ import Logo from "./Logo";
 import WhatsAppButton from "./WhatsAppButton";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#courses", label: "Courses" },
-  { href: "#why-us", label: "Why Us" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "/#about", label: "About" },
+  { href: "/#courses", label: "Courses" },
+  { href: "/#why-us", label: "Why Us" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 function NavAnchor({
@@ -26,13 +26,6 @@ function NavAnchor({
   onClick?: () => void;
   children: React.ReactNode;
 }) {
-  if (href.startsWith("#")) {
-    return (
-      <a href={href} className={className} onClick={onClick}>
-        {children}
-      </a>
-    );
-  }
   return (
     <Link href={href} className={className} onClick={onClick}>
       {children}
@@ -60,9 +53,9 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
-        <a href="#top">
+        <Link href="/">
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (

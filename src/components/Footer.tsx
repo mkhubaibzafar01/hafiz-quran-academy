@@ -3,13 +3,13 @@ import { WHATSAPP_DISPLAY, getWhatsAppLink } from "@/lib/whatsapp";
 import Logo from "./Logo";
 
 const FOOTER_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#courses", label: "Courses" },
-  { href: "#why-us", label: "Why Us" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "/#about", label: "About" },
+  { href: "/#courses", label: "Courses" },
+  { href: "/#why-us", label: "Why Us" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Footer() {
@@ -27,25 +27,15 @@ export default function Footer() {
         </p>
 
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-          {FOOTER_LINKS.map((link) =>
-            link.href.startsWith("#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-cream-100/70 transition-colors hover:text-gold-300"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-cream-100/70 transition-colors hover:text-gold-300"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {FOOTER_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-cream-100/70 transition-colors hover:text-gold-300"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <a
