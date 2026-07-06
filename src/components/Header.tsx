@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Logo from "./Logo";
 import WhatsAppButton from "./WhatsAppButton";
 
@@ -10,8 +11,34 @@ const NAV_LINKS = [
   { href: "#why-us", label: "Why Us" },
   { href: "#how-it-works", label: "How It Works" },
   { href: "#testimonials", label: "Testimonials" },
+  { href: "/blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
+
+function NavAnchor({
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  href: string;
+  className: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={className} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -39,13 +66,13 @@ export default function Header() {
 
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <NavAnchor
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-navy-700 transition-colors hover:text-primary-700"
             >
               {link.label}
-            </a>
+            </NavAnchor>
           ))}
         </nav>
 
@@ -91,13 +118,13 @@ export default function Header() {
           <ul className="flex flex-col gap-1 pt-2">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <NavAnchor
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="block rounded-md px-2 py-2 text-sm font-medium text-navy-700 hover:bg-primary-50 hover:text-primary-700"
                 >
                   {link.label}
-                </a>
+                </NavAnchor>
               </li>
             ))}
           </ul>

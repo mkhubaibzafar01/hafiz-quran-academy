@@ -5,6 +5,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import TimezoneNote from "@/components/TimezoneNote";
+import FromOurBlog from "@/components/FromOurBlog";
 import ContactCTA from "@/components/ContactCTA";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <HowItWorks />
       <Testimonials />
       <TimezoneNote />
+      <FromOurBlog />
       <ContactCTA />
     </>
   );
