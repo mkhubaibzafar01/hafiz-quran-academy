@@ -11,6 +11,7 @@ export default function ContactCTA() {
         loop
         playsInline
         preload="auto"
+        poster="/posters/cta-quran.jpg"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/cta-quran.mp4" type="video/mp4" />

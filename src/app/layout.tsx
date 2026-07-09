@@ -3,6 +3,8 @@ import { Lora, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
 import { SITE_NAME, SITE_URL, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
@@ -23,6 +25,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "online Quran classes",
     "learn Quran online",
@@ -47,13 +52,19 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   verification: {
     google: "BHTneW1_oZDJHbD07zFWCCj9Sefnk-7fWpy5j5Bw0n0",
@@ -71,6 +82,7 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${headingFont.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream-50 font-sans text-foreground">
+        <JsonLd data={organizationSchema()} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

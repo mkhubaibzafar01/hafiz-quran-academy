@@ -1,5 +1,5 @@
 ---
-title: "Noorani Qaida vs. Direct Quran Reading: Where Should Beginners Start?"
+title: "Noorani Qaida or Direct Quran Reading First?"
 description: "Should your child start with Noorani Qaida or jump straight into reading the Quran? A clear comparison to help you choose the right starting point."
 slug: "noorani-qaida-vs-direct-quran-reading-where-beginners-should-start"
 date: "2026-06-16"

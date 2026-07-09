@@ -1,45 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import { COURSES } from "@/lib/courses";
 import WhatsAppButton from "./WhatsAppButton";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/StaggerGroup";
-
-const COURSES = [
-  {
-    title: "Noorani Qaida",
-    audience: "Beginners & kids",
-    image: "/courses/noorani-qaida.jpg",
-    description:
-      "The essential first step — learning Arabic letters, correct pronunciation, and basic reading rules before moving into the Quran itself.",
-  },
-  {
-    title: "Quran Reading (Nazra) with Tajweed",
-    audience: "Kids & adults",
-    image: "/courses/quran-reading.jpg",
-    description:
-      "Learn to read the Quran fluently with correct Tajweed (pronunciation rules), building accuracy and confidence page by page.",
-  },
-  {
-    title: "Quran Memorization (Hifz)",
-    audience: "Kids & adults",
-    image: "/courses/hifz.webp",
-    description:
-      "Structured, one-to-one memorization classes with regular revision plans to help students memorize the Quran at a steady, sustainable pace.",
-  },
-  {
-    title: "Tajweed Rules",
-    audience: "All levels",
-    image: "/courses/tajweed.webp",
-    description:
-      "A focused course on the rules of Tajweed for students who already read Quran but want to refine and perfect their recitation.",
-  },
-  {
-    title: "Quran for Adults & Reverts",
-    audience: "Adults & new Muslims",
-    image: "/courses/adults-reverts.webp",
-    description:
-      "A patient, judgment-free course designed for adults and reverts starting from scratch — at your own pace, with no prior knowledge assumed.",
-  },
-];
 
 export default function Courses() {
   return (
@@ -61,30 +25,35 @@ export default function Courses() {
 
         <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COURSES.map((course) => (
-            <StaggerItem
-              key={course.title}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-cream-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-900/10"
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-primary-100">
-                <Image
-                  src={course.image}
-                  alt={`${course.title} — ${course.description}`}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute left-4 top-4 w-fit rounded-full bg-gold-100/95 px-3 py-1 text-xs font-semibold text-gold-600 shadow-sm backdrop-blur-sm">
-                  {course.audience}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-serif text-xl font-semibold text-primary-800">
-                  {course.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-700/90">
-                  {course.description}
-                </p>
-              </div>
+            <StaggerItem key={course.slug}>
+              <Link
+                href={`/courses/${course.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-cream-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-900/10"
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-primary-100">
+                  <Image
+                    src={course.image}
+                    alt={course.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-4 top-4 w-fit rounded-full bg-gold-100/95 px-3 py-1 text-xs font-semibold text-gold-600 shadow-sm backdrop-blur-sm">
+                    {course.audience}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-serif text-xl font-semibold text-primary-800">
+                    {course.name}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-700/90">
+                    {course.cardDescription}
+                  </p>
+                  <span className="mt-4 text-sm font-semibold text-primary-700 group-hover:text-primary-600">
+                    Learn more &rarr;
+                  </span>
+                </div>
+              </Link>
             </StaggerItem>
           ))}
 

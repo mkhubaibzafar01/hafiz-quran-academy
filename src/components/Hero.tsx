@@ -14,6 +14,7 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
+        poster="/posters/about-academy.jpg"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/about-academy.mp4" type="video/mp4" />

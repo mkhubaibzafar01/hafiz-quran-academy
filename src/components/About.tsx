@@ -35,6 +35,7 @@ export default function About() {
                 loop
                 playsInline
                 preload="auto"
+                poster="/posters/hero-quran.jpg"
                 className="absolute inset-0 h-full w-full object-cover"
               >
                 <source src="/videos/hero-quran.mp4" type="video/mp4" />

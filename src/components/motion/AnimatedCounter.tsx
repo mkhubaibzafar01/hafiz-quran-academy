@@ -24,17 +24,22 @@ export default function AnimatedCounter({
   }, [isInView, motionValue, value]);
 
   useEffect(() => {
+    // Only start rewriting the DOM text once the animation actually begins
+    // (i.e. once in view). Until then the server-rendered final value stays
+    // on screen, so crawlers and no-JS visitors see the real number.
+    if (!isInView) return;
     const unsubscribe = spring.on("change", (latest) => {
       if (ref.current) {
         ref.current.textContent = `${Math.round(latest).toLocaleString()}${suffix}`;
       }
     });
     return unsubscribe;
-  }, [spring, suffix]);
+  }, [isInView, spring, suffix]);
 
   return (
     <span ref={ref} className={className}>
-      0{suffix}
+      {value.toLocaleString()}
+      {suffix}
     </span>
   );
 }

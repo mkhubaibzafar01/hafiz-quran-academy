@@ -81,7 +81,7 @@ Treat this table as a compass, not a contract. A child who memorizes slower but 
 
 ## How We Assess Readiness in a Free Trial Class
 
-Rather than guessing from age alone, our teachers listen to a child read a few lines, check letter recognition and basic Tajweed, and gauge attention span in a real 20–30 minute session. From that, we can tell a parent honestly whether to begin structured Hifz now, spend a few more months on reading fluency, or start with short surahs informally while Qaida continues. It takes one trial class to know, rather than months of trial and error. Our [courses page](/#courses) has more on how trial classes are matched to a child's level before the first real lesson begins.
+Rather than guessing from age alone, our teachers listen to a child read a few lines, check letter recognition and basic Tajweed, and gauge attention span in a real 20–30 minute session. From that, we can tell a parent honestly whether to begin structured Hifz now, spend a few more months on reading fluency, or start with short surahs informally while Qaida continues. It takes one trial class to know, rather than months of trial and error. Our [Hifz program page](/courses/hifz-program) has more on how trial classes are matched to a child's level before the first real lesson begins.
 
 ## Final Thoughts
 

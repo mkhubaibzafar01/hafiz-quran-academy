@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { CATEGORIES, categorySlug, getAllPosts } from "@/lib/blog";
+import { COURSES } from "@/lib/courses";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -19,6 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const courseEntries: MetadataRoute.Sitemap = COURSES.map((course) => ({
+    url: `${SITE_URL}/courses/${course.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
   return [
     {
       url: SITE_URL,
@@ -26,6 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/courses`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...courseEntries,
     {
       url: `${SITE_URL}/blog`,
       lastModified: new Date(),

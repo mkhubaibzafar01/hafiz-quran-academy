@@ -70,6 +70,7 @@ export default function HowItWorks() {
               loop
               playsInline
               preload="auto"
+              poster="/posters/ambience-quran.jpg"
               className="absolute inset-0 h-full w-full object-cover"
             >
               <source src="/videos/ambience-quran.mp4" type="video/mp4" />

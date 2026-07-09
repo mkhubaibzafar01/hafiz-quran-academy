@@ -53,6 +53,7 @@ export default function WhyChooseUs() {
                   loop
                   playsInline
                   preload="auto"
+                  poster="/posters/quran-pages.jpg"
                   className="absolute inset-0 h-full w-full object-cover"
                 >
                   <source src="/videos/quran-pages.mp4" type="video/mp4" />

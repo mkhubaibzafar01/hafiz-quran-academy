@@ -100,7 +100,7 @@ Be wary of any teacher who promises a fixed, fast timeline for memorization — 
 
 ## Why a Free Trial Class Is Non-Negotiable
 
-A trial class is the single best signal you'll get before committing to a weekly schedule. In 20–30 minutes, you can see the teacher's patience, how they explain a mistake, whether your child relaxes or stays tense, and whether the pace feels right. No bio, review, or certificate substitutes for watching a real class happen. Our [courses page](/#courses) outlines how trial classes are matched to your child's level before the first real lesson even begins.
+A trial class is the single best signal you'll get before committing to a weekly schedule. In 20–30 minutes, you can see the teacher's patience, how they explain a mistake, whether your child relaxes or stays tense, and whether the pace feels right. No bio, review, or certificate substitutes for watching a real class happen. Our [courses page](/courses) outlines how trial classes are matched to your child's level before the first real lesson even begins.
 
 ## Final Thoughts
 

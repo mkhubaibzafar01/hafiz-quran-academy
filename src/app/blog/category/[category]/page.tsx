@@ -9,6 +9,8 @@ import {
 import BlogCard from "@/components/blog/BlogCard";
 import CategoryPills from "@/components/blog/CategoryPills";
 import Breadcrumbs from "@/components/blog/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/site";
 
 type Props = {
@@ -53,9 +55,15 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   const posts = getPostsByCategory(category);
+  const breadcrumbJsonLd = breadcrumbSchema([
+    { name: "Home", url: SITE_URL },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: category, url: `${SITE_URL}/blog/category/${categorySlugParam}` },
+  ]);
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <JsonLd data={breadcrumbJsonLd} />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

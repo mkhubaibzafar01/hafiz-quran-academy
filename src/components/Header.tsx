@@ -7,10 +7,10 @@ import WhatsAppButton from "./WhatsAppButton";
 
 const NAV_LINKS = [
   { href: "/#about", label: "About" },
-  { href: "/#courses", label: "Courses" },
+  { href: "/courses", label: "Courses" },
   { href: "/#why-us", label: "Why Us" },
-  { href: "/#how-it-works", label: "How It Works" },
   { href: "/#testimonials", label: "Testimonials" },
+  { href: "/#faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];

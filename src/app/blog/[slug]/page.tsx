@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getPostBySlug,
@@ -8,12 +9,14 @@ import {
   categorySlug,
 } from "@/lib/blog";
 import { formatDate } from "@/lib/format";
+import { COURSES } from "@/lib/courses";
 import TableOfContents from "@/components/blog/TableOfContents";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import BlogCTA from "@/components/blog/BlogCTA";
 import Breadcrumbs from "@/components/blog/Breadcrumbs";
-import JsonLd from "@/components/blog/JsonLd";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -46,13 +49,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       modifiedTime: post.lastModified,
       authors: [post.author],
-      images: [{ url: post.featuredImage }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [post.featuredImage],
     },
   };
 }
@@ -63,45 +64,17 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const relatedPosts = getRelatedPosts(post.slug, post.category);
+  const relatedCourse = COURSES.find((course) => course.relatedCategory === post.category);
   const url = `${SITE_URL}/blog/${post.slug}`;
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    image: [`${SITE_URL}${post.featuredImage}`],
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
-    datePublished: post.date,
-    dateModified: post.lastModified,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": url,
-    },
-  };
+  const articleJsonLd = articleSchema(post, url);
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.category,
-        item: `${SITE_URL}/blog/category/${categorySlug(post.category)}`,
-      },
-      { "@type": "ListItem", position: 4, name: post.title, item: url },
-    ],
-  };
+  const breadcrumbJsonLd = breadcrumbSchema([
+    { name: "Home", url: SITE_URL },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: post.category, url: `${SITE_URL}/blog/category/${categorySlug(post.category)}` },
+    { name: post.title, url },
+  ]);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
@@ -152,6 +125,25 @@ export default async function BlogPostPage({ params }: Props) {
         className="prose prose-lg mt-10 max-w-none prose-headings:font-serif prose-headings:font-bold prose-headings:text-primary-800 prose-p:leading-relaxed prose-p:text-navy-700/90 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700 hover:prose-a:underline prose-strong:text-primary-800 prose-blockquote:border-gold-400 prose-blockquote:text-navy-700/80 prose-li:text-navy-700/90"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
+
+      {relatedCourse && (
+        <div className="mt-14 rounded-2xl border border-primary-100 bg-primary-50/50 p-6">
+          <p className="font-serif text-lg font-semibold text-primary-800">
+            Ready to put this into practice?
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-navy-700/90">
+            Explore our{" "}
+            <Link
+              href={`/courses/${relatedCourse.slug}`}
+              className="font-semibold text-primary-700 underline hover:text-primary-600"
+            >
+              {relatedCourse.name} course
+            </Link>{" "}
+            — one-to-one online lessons with a qualified Hafiz, and a free
+            trial class for every new student.
+          </p>
+        </div>
+      )}
 
       <div className="mt-14">
         <BlogCTA />
